@@ -22,7 +22,6 @@ public class Calculation implements CalculationTypes{
      * @return the result of the calculation
      * */
     public double execute() {
-
         double returnValue = -1;
 
         switch (type) {
@@ -48,26 +47,18 @@ public class Calculation implements CalculationTypes{
     }
 
     private double addition() {
-        //TODO DEBUG
-        System.out.println("added");
         return operand1 + operand2;
     }
 
     private double subtraction() {
-        //TODO DEBUG
-        System.out.println("subtracted");
         return operand1 - operand2;
     }
 
     private double division() {
-        //TODO DEBUG
-        System.out.println("divided");
         return operand1 / operand2;
     }
 
     private double multiplication() {
-        //TODO DEBUG
-        System.out.println("multiplied");
         return operand1 * operand2;
     }
 

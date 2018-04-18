@@ -4,6 +4,7 @@ import app.Calculation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 public class Controller {
 
@@ -13,10 +14,11 @@ public class Controller {
     private Calculation activeCalc;
 
     @FXML
-    private Button btn2;
+    private TextField outputTxtField;
 
-    @FXML
-    private Button btn1;
+    public void initialize() {
+        outputTxtField.setText("0.00");
+    }
 
     /**
      * Dispatches the actions based on the source.
@@ -28,12 +30,16 @@ public class Controller {
 
         if (buttonText.matches("\\d")) {
             numberPressed(buttonText);
-        } else if (buttonText.matches("[\\/\\+\\-\\*]")) {
+        } else if (buttonText.matches("[/+\\-*]")) {
             operatorPressed(buttonText);
         } else {
             utilityPressed(buttonText);
         }
+
+
+
     }
+
 
     /**
      * Called when the {@code buttonPressed} method determines
@@ -44,7 +50,6 @@ public class Controller {
      * @param number the number that was pressed
      */
     private void numberPressed(String number) {
-
         if (operator == null) {
             if (operand1 == null) {
                 operand1 = number;
@@ -88,49 +93,58 @@ public class Controller {
 
     }
 
-
+    /**
+     * Handling the equals and delete buttons.
+     * @param utility the action to perform
+     * */
     private void utilityPressed(String utility) {
+        if (operand1 != null && operand2 != null & operator !=null) {
 
-        switch (utility) {
-            case "=":
-                double operand1Num = Double.parseDouble(operand1);
-                double operand2Num = Double.parseDouble(operand2);
-                double result = -1;
+            switch (utility) {
+                case "=":
+                    double operand1Num = Double.parseDouble(operand1);
+                    double operand2Num = Double.parseDouble(operand2);
+                    double result;
 
-                activeCalc = new Calculation(operand1Num, operand2Num, operator);
-                result = activeCalc.execute();
+                    activeCalc = new Calculation(operand1Num, operand2Num, operator);
+                    result = activeCalc.execute();
 
-                operand1 = String.valueOf(result);
+                    operand1 = String.valueOf(result);
 
-                //operand2 = null;
-                //operator = null;
+                    //resetting variables to continue calculation
+                    operand2 = null;
+                    operator = null;
 
-                //resetting variables to continue calculation
-                nullify(operand2, operator);
+                    System.out.printf("%.2f", result);
 
-                System.out.printf("%.2f", result);
+                    break;
 
-                break;
-
-            case "C":
-                nullify();
-                break;
+                case "C":
+                    nullify();
+                    break;
+            }
         }
+    }
+
+
+    //TODO implement
+    /**
+     * Called after changes in the instance variables.
+     * */
+    private void updateOutput() {
+
 
     }
 
-    private void nullify(String... what) {
-
-        if (what.length == 0) {
+    /**
+     * Resets all the instance variables to null, so that a
+     * new calculation can begin.
+     * */
+    private void nullify() {
             operand1 = null;
             operand2 = null;
             operator = null;
             activeCalc = null;
-        } else {
-            for (int i = 0; i < what.length; i++) {
-                what[i] = null;
-            }
-        }
     }
 
 }

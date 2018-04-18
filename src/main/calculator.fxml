@@ -29,9 +29,9 @@
             <RowConstraints />
          </rowConstraints>
          <children>
-            <Button fx:id="btn1" mnemonicParsing="false" onAction="#buttonPressed" styleClass="number" text="%btn1" GridPane.rowIndex="1" />
-            <Button fx:id="btn2" mnemonicParsing="false" onAction="#buttonPressed" styleClass="number" text="%btn2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField editable="false" focusTraversable="false" prefHeight="45.0" prefWidth="244.0" GridPane.columnSpan="4" />
+            <Button mnemonicParsing="false" onAction="#buttonPressed" styleClass="number" text="%btn1" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#buttonPressed" styleClass="number" text="%btn2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="outputTxtField" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" GridPane.columnSpan="4" />
             <Button mnemonicParsing="false" onAction="#buttonPressed" styleClass="number" text="%btn3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Button mnemonicParsing="false" onAction="#buttonPressed" styleClass="number" text="%btn4" GridPane.rowIndex="2" />
             <Button mnemonicParsing="false" onAction="#buttonPressed" styleClass="number" text="%btn5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
