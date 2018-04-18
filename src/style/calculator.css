@@ -1,0 +1,55 @@
+.background {
+    -fx-background-color: #deebf5;
+}
+
+.button {
+    -fx-padding: 14 18 14 18;
+    -fx-border-width: 2px;
+    -fx-border-color: #8b8b8b;
+}
+
+.button:pressed {
+    -fx-text-fill: #c8c8c8;
+}
+
+.number {
+    -fx-background-color: #fff2cc;
+}
+
+.number:hover {
+    -fx-background-color: #ffe752;
+}
+
+.text-field {
+    -fx-padding: 14;
+    -fx-border-width: 2px;
+    -fx-border-color: #8b8b8b;
+}
+
+.utilBtn {
+    -fx-padding: 14 16 14 16;
+}
+
+.calcBtn {
+    -fx-background-color: #F5F5F5;
+}
+
+.calcBtn:hover {
+    -fx-background-color: #e2e2e2;
+}
+
+.delete {
+    -fx-background-color: #F8CECC;
+}
+
+.delete:hover {
+    -fx-background-color: #f8afa5;
+}
+
+.equal {
+    -fx-background-color: #D5E8D4;
+}
+
+.equal:hover {
+    -fx-background-color: #9ce8b4;
+}
