@@ -14,4 +14,4 @@ A very simple calculator, that can perform 4 basic operations:
 
 The tool just shows a quick example on JavaFX MVC implementation. The content window is styled with a cascading stylesheet.
 
-![alt tag] (https://github.com/bjanos/Screenshots/blob/master/SimpleCalculator/2018-04-19_10-48-33.png)
+![Simple Calculator screen](https://github.com/bjanos/Screenshots/blob/master/SimpleCalculator/2018-04-19_10-48-33.png)
