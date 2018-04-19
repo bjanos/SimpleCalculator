@@ -17,17 +17,13 @@ The tool just shows a quick example on JavaFX MVC implementation. The content wi
 ## Structure
 
 ### Packages
-- app
-contains calculation related classes
+- app: contains calculation related classes
 
-- main
-contains the FXML for the layout, the Controller class and the Main class to start the application
+- main: contains the FXML for the layout, the Controller class and the Main class to start the application
 
-- res
-contains the resource file for internalisation. As the application is not translated into other languages, this only serves to separate descriptions from layout, so that they are not hardcoded.
+- res: contains the resource file for internalisation. As the application is not translated into other languages, this only serves to separate descriptions from layout, so that they are not hardcoded.
 
-- style
-contains the CSS file to style the layout
+- style: contains the CSS file to style the layout
 
 ## Hands On
 
