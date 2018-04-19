@@ -17,7 +17,7 @@ public class Controller {
     private TextField outputTxtField;
 
     public void initialize() {
-        outputTxtField.setText("0.00");
+        defaultOutput();
     }
 
     /**
@@ -36,7 +36,7 @@ public class Controller {
             utilityPressed(buttonText);
         }
 
-
+        updateOutput();
 
     }
 
@@ -56,25 +56,14 @@ public class Controller {
             } else {
                 operand1 += number;
             }
+
         } else {
             if (operand2 == null) {
                 operand2 = number;
             } else {
                 operand2 += number;
             }
-
         }
-
-        //TODO DEBUG
-        System.out.printf(
-                "%s: %s\n%s: %s\n%s: %s\n\n",
-                "Operand 1",
-                operand1,
-                "Operator",
-                operator,
-                "Operand 2",
-                operand2
-        );
 
     }
 
@@ -95,13 +84,18 @@ public class Controller {
 
     /**
      * Handling the equals and delete buttons.
+     *
      * @param utility the action to perform
-     * */
+     */
     private void utilityPressed(String utility) {
-        if (operand1 != null && operand2 != null & operator !=null) {
 
-            switch (utility) {
-                case "=":
+
+        switch (utility) {
+
+
+            case "=":
+                if (operand1 != null && operand2 != null && operator != null) {
+
                     double operand1Num = Double.parseDouble(operand1);
                     double operand2Num = Double.parseDouble(operand2);
                     double result;
@@ -114,37 +108,61 @@ public class Controller {
                     //resetting variables to continue calculation
                     operand2 = null;
                     operator = null;
+                    activeCalc = null;
 
-                    System.out.printf("%.2f", result);
+                }
 
-                    break;
+                break;
 
-                case "C":
-                    nullify();
-                    break;
-            }
+            case "C":
+                nullify();
+                break;
         }
     }
 
 
     //TODO implement
+
     /**
      * Called after changes in the instance variables.
-     * */
+     */
     private void updateOutput() {
 
+        StringBuilder toDisplay = new StringBuilder();
 
+        if (operand1 != null) {
+            toDisplay.append(operand1);
+
+            if (operator != null) {
+                toDisplay.append(" ").append(operator);
+
+                if (operand2 != null) {
+                    toDisplay.append(" ").append(operand2);
+                }
+            }
+
+        } else {
+            defaultOutput();
+            return;
+        }
+
+        outputTxtField.setText(toDisplay.toString());
+
+    }
+
+    private void defaultOutput() {
+        outputTxtField.setText("0.0");
     }
 
     /**
      * Resets all the instance variables to null, so that a
      * new calculation can begin.
-     * */
+     */
     private void nullify() {
-            operand1 = null;
-            operand2 = null;
-            operator = null;
-            activeCalc = null;
+        operand1 = null;
+        operand2 = null;
+        operator = null;
+        activeCalc = null;
     }
 
 }

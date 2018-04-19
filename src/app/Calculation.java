@@ -17,6 +17,18 @@ public class Calculation implements CalculationTypes{
         this.operand2 = operand2;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setOperand1(double operand1) {
+        this.operand1 = operand1;
+    }
+
+    public void setOperand2(double operand2) {
+        this.operand2 = operand2;
+    }
+
     /**
      * Executes the calculation based on its {@type}.
      * @return the result of the calculation
