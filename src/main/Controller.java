@@ -74,12 +74,13 @@ public class Controller {
      * mid-calculation.
      */
     private void operatorPressed(String operator) {
-        if (operand1 != null && this.operator == null) {
+        if (operand1 == null) {
+            operand1 = "-";
+        } else if (this.operator == null) {
             this.operator = operator;
+        } else if (operand2 == null) {
+            operand2 = "-";
         }
-
-        System.out.println(operator);
-
     }
 
     /**
@@ -89,9 +90,7 @@ public class Controller {
      */
     private void utilityPressed(String utility) {
 
-
         switch (utility) {
-
 
             case "=":
                 if (operand1 != null && operand2 != null && operator != null) {
@@ -103,13 +102,21 @@ public class Controller {
                     activeCalc = new Calculation(operand1Num, operand2Num, operator);
                     result = activeCalc.execute();
 
-                    operand1 = String.valueOf(result);
+                    /*
+                    * Handles the case of 0 result. If operand1
+                    * is not reset, the newly typed number will be
+                    * added after 0.0.
+                    * */
+                    if (result != 0.0) {
+                        operand1 = String.valueOf(result);
+                    } else {
+                        operand1 = null;
+                    }
 
                     //resetting variables to continue calculation
                     operand2 = null;
                     operator = null;
                     activeCalc = null;
-
                 }
 
                 break;
