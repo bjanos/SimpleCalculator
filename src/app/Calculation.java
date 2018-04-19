@@ -1,5 +1,14 @@
 package app;
 
+/**
+ * Contains the logic for calculations. Could be implemented
+ * with inheritance where Calculation is the superclass and
+ * the individual calc types are subclasses, but this would
+ * over-complicate this simple application.
+ *
+ * @author Janos Benyovszki
+ *
+ * */
 public class Calculation implements CalculationTypes{
 
     private String type;

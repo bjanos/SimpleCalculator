@@ -8,10 +8,15 @@ import javafx.stage.Stage;
 
 import java.util.ResourceBundle;
 
+/**
+ * Starts the application.
+ *
+ * @author Janos Benyovszki
+ */
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         ResourceBundle resource = ResourceBundle.getBundle("res/text");
         Parent root = FXMLLoader.load(getClass().getResource("calculator.fxml"), resource);
         Scene scene = new Scene(root);

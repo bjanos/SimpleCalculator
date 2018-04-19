@@ -6,6 +6,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+/**
+ * Controller class for the layout. Connects representation (gui)
+ * with app logic (calculation).
+ *
+ * @author Janos Benyovszki
+ * */
 public class Controller {
 
     private String operand1;

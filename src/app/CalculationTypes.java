@@ -1,5 +1,12 @@
 package app;
 
+/**
+ * Constants for dispatching incoming execute requests for the
+ * Calculation object.
+ *
+ * @author Janos Benyovszki
+ * @see Calculation
+ */
 public interface CalculationTypes {
 
     public static String ADDITION = "+";
