@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
  * with app logic (calculation).
  *
  * @author Janos Benyovszki
- * */
+ */
 public class Controller {
 
     private String operand1;
@@ -62,7 +62,6 @@ public class Controller {
             } else {
                 operand1 += number;
             }
-
         } else {
             if (operand2 == null) {
                 operand2 = number;
@@ -81,7 +80,9 @@ public class Controller {
      */
     private void operatorPressed(String operator) {
         if (operand1 == null) {
-            operand1 = "-";
+            if (operator.equals("-")) {
+                operand1 = "-";
+            }
         } else if (this.operator == null) {
             this.operator = operator;
         } else if (operand2 == null) {
@@ -109,10 +110,10 @@ public class Controller {
                     result = activeCalc.execute();
 
                     /*
-                    * Handles the case of 0 result. If operand1
-                    * is not reset, the newly typed number will be
-                    * added after 0.0.
-                    * */
+                     * Handles the case of 0 result. If operand1
+                     * is not reset, the newly typed number will be
+                     * added after 0.0.
+                     * */
                     if (result != 0.0) {
                         operand1 = String.valueOf(result);
                     } else {
